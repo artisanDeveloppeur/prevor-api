@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test API - Prevor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/dashicons.css">
+
     <style>
       .hidden{display:none;}
     </style>
     <style>
 
+body{
+  background-color: white;
+}
       .item {
           cursor: pointer;
           margin-bottom: 2rem;
@@ -131,7 +136,97 @@
       .z-index{
         z-index: 9999999;
       }
+/*! SASS #components tabs */
+.tab a[aria-selected=true] {
+  text-transform: uppercase;
+  color: black;
+}
 
+.tab {
+  margin-block: 3rem;
+}
+.tab a {
+  font-family: Montserrat;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  text-transform: capitalize;
+  background-color: #F2F2F2ff;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  color: grey;
+}
+.tab i {
+  font-size: 32px;
+}
+.tab h3 {
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  letter-spacing: 3px;
+  line-height: 36px;
+  margin-block: 0.5em 1rem;
+  text-transform: capitalize;
+  color: var(--main-color);
+}
+.tab h4 {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  height: auto;
+  letter-spacing: -0.3px;
+  line-height: 24px;
+  margin-block: 1rem;
+  margin-bottom: 1rem;
+  margin-inline: 0px;
+}
+.tab p {
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  height: auto;
+  letter-spacing: 0.24px;
+  line-height: 25.8px;
+  margin-block: 20px;
+  margin-bottom: 20px;
+}
+
+.tab > div {
+  width: 100%;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.tab .nav-pills {
+  padding: 0;
+  display: flex;
+}
+
+.tab .nav-pills::before {
+  content: "";
+}
+
+.tab .nav-pills::after {
+  content: "";
+  /*flex: 1;*/
+}
+
+.nav-pills-div div {
+  padding-block: 25px;
+  padding-inline: 25px;
+  box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tab .nav-pills {
+    flex-direction: column;
+  }
+}
 
 
   </style>
@@ -141,28 +236,47 @@
         <h1>Défibrillateurs </h1>
         <p>Provider : <strong>SIPPT</strong> / City : <strong>Liège</strong></p>
       </header>
-        <div class="container-map ">
-  
-          <div id="coordinatesMap" class="list nos-artisans"> 
-               
-          </div>
-        
-          <div class="map" id="map"></div>
-        
-        </div>
+
       <main>
-        <!-- 
-        Table to display fetched user data 
-        -->  
-        <div>
-          <label for="filterId">Filtrer</label>
-          <input id="filterId" type="text" class="table-filter" data-table="order-table" placeholder="Item to filter.." />
-        </div>
-        <table class="table table-striped order-table" id="defibrillateurs"></table>
+        <section>
+          <h2>Résoudre votre défi technique</h2>
+          <div class="tab">
+              <nav-tabs class="nav-pills">
+                <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau</a>
+                <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
+
+              </nav-tabs>
+              <div > 
+                  <div id="vue-tableau">
+                    <!-- 
+                    Table to display fetched user data 
+                    -->  
+                    <div>
+                      <label for="filterId">Filtrer</label>
+                      <input id="filterId" type="text" class="table-filter" data-table="order-table" placeholder="Item to filter.." />
+                    </div>
+                    <table class="table table-striped order-table" id="defibrillateurs"></table>
+                    </div>
+                  <div id="vue-carte">
+                    <div class="container-map ">
+  
+                      <div id="coordinatesMap" class="list nos-artisans"> 
+                           
+                      </div>
+                    
+                      <div class="map" id="map"></div>
+                    
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
       </main>
       <footer>
         <p>© 2023 Données fournies par l'<a href="https://opendata.liege.be/explore/dataset/defibrillateurs/information/"  target="_blank">API Open Data Liège (Les défibrillateurs)</a>.</p>
       </footer>
+      <script src="./scripts/tabs.js"></script>
       <script src="./scripts/api.js"></script>
       <script src="./scripts/vendors-map.js"></script>
       <script src="./scripts/map.js"></script>
