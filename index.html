@@ -9,12 +9,147 @@
     <style>
       .hidden{display:none;}
     </style>
+    <style>
+
+      .item {
+          cursor: pointer;
+          margin-bottom: 2rem;
+          transition: box-shadow .3s;
+          margin-inline: 2rem;
+      }
+
+      .item:hover() {
+          box-shadow: 0 0 10px rgba(0,0,0,.1);
+          background-color: #fff
+      }
+
+      .item h4 {
+          margin: 1rem 0 .5rem
+      }
+
+      .item p {
+          margin: 0 0 1rem
+      }
+
+      .item img {
+          /*width: calc(100% + 40px);*/
+          width:calc(100% - 150px);
+          /*margin-left: -20px;*/
+          display: block
+      }
+
+      .map {
+          height: 100vh
+      }
+
+   
+      
+      @media only screen and (min-width: 1100px) {
+          .container-map {
+              display:grid;
+              grid-template-columns: 2fr 6fr
+          }
+          /*
+          .list {
+              display: grid;
+              grid-template-columns: repeat(1,1fr);
+              grid-column-gap: 30px;
+              padding: 0 30px
+          }
+          */
+          .map {
+              background-color: #CCC;
+              position: sticky!important;
+              top: 0;
+              right: 0;
+              left: 0;
+          }
+      }
+      
+      .marker{
+          transform: translate(-50%, calc(-100% - 10px));
+          white-space: nowrap;
+          padding :5px 10px;
+          font-weight: bold;
+         /*
+          width:150px;
+          height:40px;
+          margin-top: -50px;
+          margin-left: -75px;
+          line-height: 40px;
+         */
+          text-align: center;
+          background-color: #FFF;
+          box-shadow: 0 0 10px rgba(0,0,0,.3);
+      }
+      .marker::after{
+          content:'';
+          position:absolute;
+          top:100%;
+          left:50%;
+          width:0;
+          height:0;
+          margin-left:-8px;
+          border-left:8px solid transparent;
+          border-right:8px solid transparent;
+          border-top:8px solid #FFF;
+          
+      }
+      
+      .marker.is-active{
+          background-color: #5069ff;
+          color:#FFF;
+          z-index: 300;
+      }
+      .marker.is-active::after{
+          border-top-color: #5069ff;
+      }
+      
+      .nos-artisans img {
+        width:200px;
+
+      }
+
+      hr{
+        width: 100%;
+        border:1px solid rgb(223, 217, 217);
+        margin-block: 0 1rem;
+      }
+
+      .gm-style img.logo-artisan, .gm-style a {
+          max-width: none;
+          width: 200px;
+          margin: auto;
+          display: none;
+      }
+
+      #filter-search{
+        height: 40px;
+    width: 80%;
+      }
+
+      .z-index{
+        z-index: 9999999;
+      }
+
+
+
+  </style>
   </head>
   <body >
       <header>
         <h1>Défibrillateurs </h1>
         <p>Provider : <strong>SIPPT</strong> / City : <strong>Liège</strong></p>
       </header>
+        <div class="container-map ">
+  
+          <div id="coordinatesMap" class="list nos-artisans"> 
+               
+          </div>
+        
+          <div class="map" id="map"></div>
+        
+        </div>
       <main>
         <!-- 
         Table to display fetched user data 
@@ -29,6 +164,8 @@
         <p>© 2023 Données fournies par l'<a href="https://opendata.liege.be/explore/dataset/defibrillateurs/information/"  target="_blank">API Open Data Liège (Les défibrillateurs)</a>.</p>
       </footer>
       <script src="./scripts/api.js"></script>
+      <script src="./scripts/vendors-map.js"></script>
+      <script src="./scripts/map.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
       <script >
