@@ -60,9 +60,7 @@ const listItems = []
 searchBar.addEventListener('input', (e) => filterData(e.target.value))
 
 const result = document.getElementById('result')
-const filter = document.getElementById('filter')
 getData()
-filter.addEventListener('input', (e) => filterData(e.target.value))
 async function getData() {
   const res = await fetch('https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=40')
   const { results } = await res.json()

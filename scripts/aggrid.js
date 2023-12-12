@@ -74,7 +74,7 @@ function onFilterTextBoxChanged() {
 document.addEventListener('DOMContentLoaded', function () {
   const gridDiv = document.querySelector('#myGrid');
   gridApi = agGrid.createGrid(gridDiv, gridOptions);
-  fetch('https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=100')
+  fetch('https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=80')
     .then((response) => response.json())
     .then((data) => gridApi.setGridOption('rowData', data.results));
 });
