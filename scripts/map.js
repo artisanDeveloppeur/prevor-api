@@ -165,20 +165,21 @@ const initMap = async function () {
 
 let coordinatesMap = "";
 function fetchData() {
-  fetch("https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=10")
+  fetch("https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=20")
     // Converting received data to JSON
     .then((response) => response.json())
     .then((json) => {
-      // console.log(json.results)
+      console.log(json.results)
       // 2. Create a variable to store HTML table headers
 
       // 3. Loop through each data and add a table row
       json.results.forEach((defibrillateurs) => {
-        if (defibrillateurs.floor == null) { return " " }
-        coordinatesMap += `<div  class="item js-marker" data-lat="${defibrillateurs.geo_point_2d.lat}" data-lng="${defibrillateurs.geo_point_2d.lon}" data-name="Défibrillateurs ${defibrillateurs.gid}" >
-        <h4>Défibrillateurs ${defibrillateurs.gid}</h4>
-        <p>${defibrillateurs.street_name} ${defibrillateurs.house_number}, 4000 Liège, Belgique</p>
-      </div>`;
+        //if (defibrillateurs.floor == null) { return " " }
+        coordinatesMap += `<div  class="item js-marker" 
+        data-lat="${defibrillateurs.geo_point_2d.lat}" data-lng="${defibrillateurs.geo_point_2d.lon}" data-name="ID ${defibrillateurs.gid}" >
+        <h4>Identifiant ${defibrillateurs.gid}</h4>
+        <p>${defibrillateurs.street_name} ${defibrillateurs.house_number}, ${defibrillateurs.postal_code} Liège, <br/>(${defibrillateurs.floor})</p>
+      </div><hr>`;
       });
       // 4. DOM Display result
       document.getElementById("coordinatesMap").innerHTML = coordinatesMap;
