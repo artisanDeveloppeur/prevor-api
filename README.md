@@ -21,4 +21,7 @@ Documentation code file (scripts/api.js)
 4. Loop through each data and add a table row
 5. DOM Display result
 
-**add map and cards with search** 
+A) **add map and cards with search** 
+----------------------------------------------------------------------------------
+B) **change table with AGGRID** (https://www.ag-grid.com/javascript-data-grid/getting-started/) 
+----------------------------------------------------------------------------------
