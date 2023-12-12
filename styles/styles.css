@@ -1,0 +1,307 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+body {
+  padding: 16px;
+  overflow: auto;
+  background-color: transparent
+}
+
+.hidden {
+  display: none;
+}
+
+.example-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#myGrid {
+  flex: 1 1 0px;
+  width: 100%;
+}
+
+.example-header {
+
+  margin-bottom: 5px;
+}
+
+body {
+  background-color: white;
+}
+
+.item {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: box-shadow .3s;
+  margin-inline: 2rem;
+}
+
+.item:hover() {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  background-color: #fff
+}
+
+.item h4 {
+  margin: 1rem 0 .5rem
+}
+
+.item p {
+  margin: 0 0 1rem
+}
+
+.item img {
+  /*width: calc(100% + 40px);*/
+  width: calc(100% - 150px);
+  /*margin-left: -20px;*/
+  display: block
+}
+
+.map {
+  height: 100vh
+}
+
+
+
+@media only screen and (min-width: 1100px) {
+  .container-map {
+    display: grid;
+    grid-template-columns: 2fr 6fr
+  }
+
+  /*
+          .list {
+              display: grid;
+              grid-template-columns: repeat(1,1fr);
+              grid-column-gap: 30px;
+              padding: 0 30px
+          }
+          */
+  .map {
+    background-color: #CCC;
+    position: sticky !important;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.marker {
+  transform: translate(-50%, calc(-100% - 10px));
+  white-space: nowrap;
+  padding: 5px 10px;
+  font-weight: bold;
+  /*
+          width:150px;
+          height:40px;
+          margin-top: -50px;
+          margin-left: -75px;
+          line-height: 40px;
+         */
+  text-align: center;
+  background-color: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.marker::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #FFF;
+
+}
+
+.marker.is-active {
+  background-color: #5069ff;
+  color: #FFF;
+  z-index: 300;
+}
+
+.marker.is-active::after {
+  border-top-color: #5069ff;
+}
+
+.nos-artisans img {
+  width: 200px;
+
+}
+
+hr {
+  width: 100%;
+  border: 1px solid rgb(223, 217, 217);
+  margin-block: 0 1rem;
+}
+
+.gm-style img.logo-artisan,
+.gm-style a {
+  max-width: none;
+  width: 200px;
+  margin: auto;
+  display: none;
+}
+
+#filter-search {
+  height: 40px;
+  width: 80%;
+}
+
+.z-index {
+  z-index: 9999999;
+}
+
+/*! SASS #components tabs */
+.tab a[aria-selected=true] {
+  text-transform: uppercase;
+  color: black;
+}
+
+.tab {
+  /*margin-block: 3rem;*/
+}
+
+.tab a {
+  font-family: Montserrat;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  text-transform: capitalize;
+  background-color: #F2F2F2ff;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  color: grey;
+}
+
+.tab i {
+  font-size: 32px;
+}
+
+.tab h3 {
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  letter-spacing: 3px;
+  line-height: 36px;
+  margin-block: 0.5em 1rem;
+  text-transform: capitalize;
+  color: var(--main-color);
+}
+
+.tab h4 {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  height: auto;
+  letter-spacing: -0.3px;
+  line-height: 24px;
+  margin-block: 1rem;
+  margin-bottom: 1rem;
+  margin-inline: 0px;
+}
+
+.tab p {
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 300;
+  height: auto;
+  letter-spacing: 0.24px;
+  line-height: 25.8px;
+  margin-block: 20px;
+  margin-bottom: 20px;
+}
+
+.tab>div {
+  width: 100%;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.tab .nav-pills {
+  padding: 0;
+  display: flex;
+}
+
+.tab .nav-pills::before {
+  content: "";
+}
+
+.tab .nav-pills::after {
+  content: "";
+  /*flex: 1;*/
+}
+
+.nav-pills-div div {
+  padding-block: 25px;
+  padding-inline: 25px;
+  box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tab .nav-pills {
+    flex-direction: column;
+  }
+}
+
+.container-bloc,
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+.card strong {
+  font-weight: 700;
+}
+
+.cards-list {
+  display: none;
+  ;
+}
+
+.cards-list div.hide {
+  display: none;
+}
