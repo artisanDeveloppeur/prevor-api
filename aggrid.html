@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en">
+	<head>
+		<title>JavaScript example</title>
+		<meta charSet="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+
+		<style media="only screen">  
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                box-sizing: border-box;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            html {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 0;
+                overflow: auto;
+            }
+
+            body {
+                padding: 16px;
+                overflow: auto;
+                background-color: transparent
+            }
+            .example-wrapper {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+            }
+
+            #myGrid {
+              flex: 1 1 0px;
+              width: 100%;
+            }
+
+            .example-header {
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              font-size: 13px;
+              margin-bottom: 5px;
+            }
+
+            </style>
+	</head>
+	<body>
+		<div class="example-wrapper">
+			<div class="example-header">
+				<span>Quick Filter:</span>
+				<input type="text" id="filter-text-box" placeholder="Filter..." oninput="onFilterTextBoxChanged()">
+				</div>
+				<div id="myGrid" class="ag-theme-quartz">
+				</div>
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.1/dist/ag-grid-community.min.js">
+			</script>
+			<script src="aggrid.js">
+			</script>
+		</body>
+	</html>
