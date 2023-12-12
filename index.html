@@ -17,60 +17,64 @@
     </header>
     <div class="example-wrapper">
 			<div class="example-header">
-        <div class="tab">
-          <nav-tabs class="nav-pills">
-            <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau</a>
-            <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
-            <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc</a>
-
-          </nav-tabs>
-          <div > 
-              <div id="vue-tableau">
-                <!-- 
-                Table to display fetched user data 
-                <div>
-                  <label for="filterId">Filtrer</label>
-                  <input id="filterId" type="text" class="table-filter" data-table="order-table" placeholder="Item to filter.." />
-                </div>
-                <table class="table table-striped order-table" id="defibrillateurs"></table>
-
-                -->  
-          
-                <!--
-
-                  replace aggrid
-                -->
-                </div>
-              <div id="vue-carte">
-                <div class="container-map ">
-
-                  <div id="coordinatesMap" class="list nos-artisans"> 
-                       
+        <section>
+          <h2>Résoudre votre défi technique</h2>
+          <div class="tab">
+            <nav-tabs class="nav-pills">
+              <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau</a>
+              <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
+              <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc</a>
+  
+            </nav-tabs>
+            <div > 
+                <div id="vue-tableau">
+                  <!-- 
+                  Table to display fetched user data 
+                  <div>
+                    <label for="filterId">Filtrer</label>
+                    <input id="filterId" type="text" class="table-filter" data-table="order-table" placeholder="Item to filter.." />
                   </div>
-                
-                  <div class="map" id="map"></div>
-                
+                  <table class="table table-striped order-table" id="defibrillateurs"></table>
+  
+                  -->  
+            
+                  <!--
+  
+                    replace aggrid
+                  -->
+                  </div>
+                <div id="vue-carte">
+                  <div class="container-map ">
+  
+                    <div id="coordinatesMap" class="list nos-artisans"> 
+                         
+                    </div>
+                  
+                    <div class="map" id="map"></div>
+                  
+                  </div>
                 </div>
-              </div>
-              <div id="vue-bloc">
-                <div class="search-wrapper">
-                  <form action="">
-                    <label for="search-bar">Search :</label>
-                    <input 
-                      id="search-bar"
-                      type="text" 
-                      placeholder="Search here"
-                    />
-                  </form>
-                  <div id="result" class="cards-list"></div>
+                <div id="vue-bloc">
+                  <div class="search-wrapper">
+                    <form action="">
+                      <label for="search-bar">Search :</label>
+                      <input 
+                        id="search-bar"
+                        type="text" 
+                        placeholder="Search here"
+                      />
+                    </form>
+                    <div id="result" class="cards-list"></div>
+                  </div>
+                  <div class="container-bloc">
+                  </div>
+            
                 </div>
-                <div class="container-bloc">
-                </div>
-          
-              </div>
-
+  
+            </div>
           </div>
-      </div>
+        </section>
+  
 				<span>Quick Filter:</span>
 				<input type="text" id="filter-text-box" placeholder="Filter..." oninput="onFilterTextBoxChanged()">
 				</div>
@@ -82,10 +86,7 @@
 			</div>
       
       <main>
-        <section>
-          <h2>Résoudre votre défi technique</h2>
-        
-      </section>
+  
 
       </main>
       <footer>
