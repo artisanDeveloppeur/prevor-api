@@ -16,14 +16,14 @@
       <p>Provider : <strong>SIPPT</strong> / City : <strong>Liège</strong></p>
     </header>
     <div class="example-wrapper">
-			<div class="example-header">
+        <h2>Résoudre votre défi technique</h2>
+        <p>© 2023 Données fournies par l'<a href="https://opendata.liege.be/explore/dataset/defibrillateurs/information/"  target="_blank">API Open Data Liège (Les défibrillateurs)</a>.</p>
         <section>
-          <h2>Résoudre votre défi technique</h2>
           <div class="tab">
             <nav-tabs class="nav-pills">
-              <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau</a>
+              <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau (AGGRID)</a>
               <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
-              <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc</a>
+              <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc (SEARCH)</a>
   
             </nav-tabs>
             <div > 
@@ -37,7 +37,12 @@
                   <table class="table table-striped order-table" id="defibrillateurs"></table>
   
                   -->  
-            
+                  <div class="example-header">
+                  <span>Quick Filter:</span>
+                  <input type="text" id="filter-text-box" placeholder="Filter..." oninput="onFilterTextBoxChanged()">
+                  </div>
+                  <div id="myGrid" class="ag-theme-quartz">
+                  </div>
                   <!--
   
                     replace aggrid
@@ -72,17 +77,11 @@
                 </div>
   
             </div>
-          </div>
         </section>
   
-				<span>Quick Filter:</span>
-				<input type="text" id="filter-text-box" placeholder="Filter..." oninput="onFilterTextBoxChanged()">
-				</div>
 
+      </div>
 
-				<div id="myGrid" class="ag-theme-quartz">
-				</div>
-        
 			</div>
       
       <main>
@@ -90,7 +89,7 @@
 
       </main>
       <footer>
-        <p>© 2023 Données fournies par l'<a href="https://opendata.liege.be/explore/dataset/defibrillateurs/information/"  target="_blank">API Open Data Liège (Les défibrillateurs)</a>.</p>
+        
       </footer>
       <script src="./scripts/tabs.js"></script>
       <script src="./scripts/vendors-map.js"></script>
