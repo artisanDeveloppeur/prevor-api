@@ -18,9 +18,12 @@ async function renderData() {
     return;
   }
 
+
   data.forEach(item => {
+
+
     if (item.floor == null) { return " " }
-    console.log(item)
+    //console.log(item)
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -48,3 +51,86 @@ async function renderData() {
 
 // Call the renderData function to display data
 renderData();
+
+const searchBar = document.querySelector("#search-bar");
+const list = document.querySelector(".cards-list");
+const cardsList = document.querySelector(".cards-list");
+
+const listItems = []
+
+searchBar.addEventListener('input', (e) => filterData(e.target.value))
+
+const result = document.getElementById('result')
+const filter = document.getElementById('filter')
+getData()
+filter.addEventListener('input', (e) => filterData(e.target.value))
+async function getData() {
+  const res = await fetch('https://opendata.liege.be/api/explore/v2.1/catalog/datasets/defibrillateurs/records?limit=40')
+  const { results } = await res.json()
+  // Clear result
+  result.innerHTML = ''
+  results.forEach(item => {
+    const li = document.createElement('li')
+    listItems.push(li)
+    li.innerHTML = `
+<div class="user-info">
+<h4>${item.gid} </h4>
+</div>
+`
+    result.appendChild(li)
+
+  })
+}
+
+
+
+function filterData(searchTerm) {
+  let containerBloc = document.querySelector(".container-bloc");
+
+  if (searchTerm === "") {
+    containerBloc.style.display = "flex"
+  } else {
+    containerBloc.style.display = "none"
+  }
+
+  listItems.forEach(item => {
+    if (item.innerText.toLowerCase().includes(searchTerm.toLowerCase())) {
+      item.classList.remove('hide')
+    } else {
+      item.classList.add('hide')
+    }
+  })
+}
+
+/*
+// Keyup eventlistener for search inpout
+searchBar.addEventListener('keyup', (event) => {
+  let searchTerm = event.target.value;
+  console.log(searchTerm)
+  let containerBloc = document.querySelector(".container-bloc");
+  if (searchTerm === "") {
+    containerBloc.style.display = "flex"
+  } else {
+    containerBloc.style.display = "none"
+  }
+
+
+  //showList(searchTerm);
+})
+*/
+/*
+// Filter and Show list
+function showList(searchTerm) {
+  renderData()
+    .then(items => filteredItems(items, searchTerm))
+}
+
+// filter users as per searchTerm
+function filteredItems(items, searchTerm) {
+  const filteredItems = items.filter(item =>
+    item.toLowerCase().includes(searchTerm)
+  )
+  // console.log(filteredUsers.length ? filteredUsers : users)   
+  return filteredItems.length ? filteredItems : items;
+}
+*/

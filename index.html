@@ -255,7 +255,9 @@ body{
 .card strong{
   font-weight: 700;
 }
-
+.cards-list li.hide {
+    display: none;
+}
   </style>
   </head>
   <body >
@@ -271,7 +273,7 @@ body{
               <nav-tabs class="nav-pills">
                 <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau</a>
                 <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
-                <a href="#vue-bloc" class="tabs_"><span class="dashicons "></span> Bloc</a>
+                <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc</a>
 
               </nav-tabs>
               <div > 
@@ -297,6 +299,17 @@ body{
                     </div>
                   </div>
                   <div id="vue-bloc">
+                    <div class="search-wrapper">
+                      <form action="">
+                        <label for="search-bar">Search :</label>
+                        <input 
+                          id="search-bar"
+                          type="text" 
+                          placeholder="Search here"
+                        />
+                      </form>
+                      <ul id="result" class="cards-list"></ul>
+                    </div>
                     <div class="container-bloc">
                     </div>
               
