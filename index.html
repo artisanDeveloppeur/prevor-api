@@ -228,7 +228,7 @@ body{
   }
 }
 
-.container-bloc {
+.container-bloc, .cards-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -255,9 +255,15 @@ body{
 .card strong{
   font-weight: 700;
 }
-.cards-list li.hide {
+
+.cards-list {
+  display: none;;
+}
+.cards-list div.hide {
     display: none;
 }
+
+
   </style>
   </head>
   <body >
@@ -308,7 +314,7 @@ body{
                           placeholder="Search here"
                         />
                       </form>
-                      <ul id="result" class="cards-list"></ul>
+                      <div id="result" class="cards-list"></div>
                     </div>
                     <div class="container-bloc">
                     </div>

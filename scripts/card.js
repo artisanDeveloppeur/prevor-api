@@ -53,7 +53,6 @@ async function renderData() {
 renderData();
 
 const searchBar = document.querySelector("#search-bar");
-const list = document.querySelector(".cards-list");
 const cardsList = document.querySelector(".cards-list");
 
 const listItems = []
@@ -70,14 +69,23 @@ async function getData() {
   // Clear result
   result.innerHTML = ''
   results.forEach(item => {
-    const li = document.createElement('li')
-    listItems.push(li)
-    li.innerHTML = `
-<div class="user-info">
-<h4>${item.gid} </h4>
+    const div = document.createElement('div')
+    listItems.push(div)
+    div.innerHTML = `
+<div class="cards-info">
+<div class="card"><h2>Identifiant ${item.gid}</h2>
+<p><strong "="">Adresse</strong> : ${item.street_name} ${item.house_number}, ${item.postal_code} Liège, (${item.floor})</p>
+<footer><strong "="">Informations techniques</strong> :
+    <ul> 
+    <li>(lisrue) ${item.street_code}</li>
+    <li>(ICAR street) ${item.icar_street_id}</li>
+    <li>(ICAR address) ${item.icar_address_id}</li>
+    <li>Date ${item.created}</li>
+    <li>Modification ${item.last_modified}</li>
+    </ul></footer></div>
 </div>
 `
-    result.appendChild(li)
+    result.appendChild(div)
 
   })
 }
@@ -89,8 +97,10 @@ function filterData(searchTerm) {
 
   if (searchTerm === "") {
     containerBloc.style.display = "flex"
+    cardsList.style.display = "none"
   } else {
     containerBloc.style.display = "none"
+    cardsList.style.display = "flex"
   }
 
   listItems.forEach(item => {
