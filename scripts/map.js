@@ -169,7 +169,7 @@ function fetchData() {
     // Converting received data to JSON
     .then((response) => response.json())
     .then((json) => {
-      console.log(json.results)
+      //console.log(json.results)
       // 2. Create a variable to store HTML table headers
 
       // 3. Loop through each data and add a table row
