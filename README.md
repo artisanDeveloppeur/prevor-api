@@ -27,3 +27,4 @@ B) **change table with AGGRID** (https://www.ag-grid.com/javascript-data-grid/ge
 ----------------------------------------------------------------------------------
 C) **add coordinates with add buttons in AG Grid cells** (https://blog.ag-grid.com/cell-renderers-in-ag-grid-every-different-flavour/)
 ----------------------------------------------------------------------------------
+D) add tooltip with dates (GID)

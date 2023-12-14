@@ -26,7 +26,10 @@ const filterParams = {
 const gridOptions = {
 
   columnDefs: [
-    { headerName: 'Identifiant', field: 'gid', minWidth: 50 },
+    {
+      headerName: 'Identifiant', field: 'gid', minWidth: 50,
+      tooltipField: 'gid',
+    },
     {
       headerName: 'Defibrillator address (Street name / House number / Postal code / Floor)',
       children: [
@@ -34,15 +37,31 @@ const gridOptions = {
         { headerName: 'House number', field: 'house_number', minWidth: 200 },
         { headerName: 'Postal code', field: 'postal_code' },
         { field: 'floor', minWidth: 250 },
-      ]
+        {
+          headerName: 'Coordinates',
+          field: 'geo_point_2d',
+          cellRenderer: 'btnCellRenderer',
+          cellRendererParams: {
+            clicked: function (field) {
+              window.open(`http://www.google.com/maps/place/${field.lat},${field.lon}`, "_blank")
+            }
+          },
+          minWidth: 150
+        },
+      ],
+      //tooltipField: ['gid', 'street_name', 'house_number', 'postal_code', 'floor']
+
     },
+
     {
       headerName: 'Professional (Street code / ID icar address and street)',
       children: [
         { headerName: 'Street code', field: 'street_code' },
         { headerName: 'Address', field: 'icar_address_id' },
         { headerName: 'Street', field: 'icar_street_id' },
-      ]
+      ],
+
+
     },
     /*
     {
@@ -52,17 +71,7 @@ const gridOptions = {
       ]
     },
     */
-    {
-      headerName: 'Coordinates',
-      field: 'geo_point_2d',
-      cellRenderer: 'btnCellRenderer',
-      cellRendererParams: {
-        clicked: function (field) {
-          window.open(`http://www.google.com/maps/place/${field.lat},${field.lon}`, "_blank")
-        }
-      },
-      minWidth: 150
-    },
+
 
 
 
@@ -96,8 +105,10 @@ const gridOptions = {
     floatingFilter: true,
     // disable cell data types
     cellDataType: false,
+    tooltipComponent: CustomTooltip,
   },
-
+  tooltipShowDelay: 0,
+  tooltipHideDelay: 2000,
   // default ColGroupDef, get applied to every column group
   defaultColGroupDef: {
     marryChildren: true,
