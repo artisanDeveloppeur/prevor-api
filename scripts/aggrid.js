@@ -44,11 +44,24 @@ const gridOptions = {
         { headerName: 'Street', field: 'icar_street_id' },
       ]
     },
+    /*
     {
       headerName: 'Dates',
       children: [
         { headerName: 'Last modified', field: 'last_modified', minWidth: 150 },
       ]
+    },
+    */
+    {
+      headerName: 'Coordinates',
+      field: 'geo_point_2d',
+      cellRenderer: 'btnCellRenderer',
+      cellRendererParams: {
+        clicked: function (field) {
+          window.open(`http://www.google.com/maps/place/${field.lat},${field.lon}`, "_blank")
+        }
+      },
+      minWidth: 150
     },
 
 
@@ -89,6 +102,9 @@ const gridOptions = {
   defaultColGroupDef: {
     marryChildren: true,
   },
+  components: {
+    btnCellRenderer: BtnCellRenderer
+  }
 
 };
 
