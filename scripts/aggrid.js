@@ -1,24 +1,53 @@
 let gridApi;
+const filterParams = {
+  comparator: (filterLocalDateAtMidnight, cellValue) => {
+    const dateAsString = cellValue;
+    const dateParts = dateAsString.split('/');
+    const cellDate = new Date(
+      Number(dateParts[2]),
+      Number(dateParts[1]) - 1,
+      Number(dateParts[0])
+    );
 
+    if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+      return 0;
+    }
+
+    if (cellDate < filterLocalDateAtMidnight) {
+      return -1;
+    }
+
+    if (cellDate > filterLocalDateAtMidnight) {
+      return 1;
+    }
+  },
+}
 /** @type {import('ag-grid-community').GridOptions} */
 const gridOptions = {
+
   columnDefs: [
-    { headerName: 'Identifiant', field: 'gid' },
+    { headerName: 'Identifiant', field: 'gid', minWidth: 50 },
     {
-      headerName: 'Defibrillator address ',
+      headerName: 'Defibrillator address (Street name / House number / Postal code / Floor)',
       children: [
         { headerName: 'Street name', field: 'street_name', minWidth: 250 },
-        { headerName: 'House number', field: 'house_number' },
+        { headerName: 'House number', field: 'house_number', minWidth: 200 },
         { headerName: 'Postal code', field: 'postal_code' },
-        { field: 'floor' },
+        { field: 'floor', minWidth: 250 },
       ]
     },
     {
-      headerName: 'Technical information (Professional)',
+      headerName: 'Professional (Street code / ID icar address and street)',
       children: [
         { headerName: 'Street code', field: 'street_code' },
-        { headerName: 'ID icar address', field: 'icar_address_id' },
-        { headerName: 'ID icar street', field: 'icar_street_id' },
+        { headerName: 'Address', field: 'icar_address_id' },
+        { headerName: 'Street', field: 'icar_street_id' },
+      ]
+    },
+    {
+      headerName: 'Dates',
+      children: [
+        { headerName: 'Last modified', field: 'last_modified', minWidth: 150 },
       ]
     },
 
@@ -45,7 +74,7 @@ const gridOptions = {
   */
   defaultColDef: {
     // set the default column width
-    width: 150,
+    width: 125,
     // make every column editable
     editable: false,
     // make every column use 'text' filter by default
