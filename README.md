@@ -25,3 +25,5 @@ A) **add map and cards with search**
 ----------------------------------------------------------------------------------
 B) **change table with AGGRID** (https://www.ag-grid.com/javascript-data-grid/getting-started/) 
 ----------------------------------------------------------------------------------
+C) **add coordinates with add buttons in AG Grid cells** (https://blog.ag-grid.com/cell-renderers-in-ag-grid-every-different-flavour/)
+----------------------------------------------------------------------------------
