@@ -34,8 +34,8 @@ const gridOptions = {
       headerName: 'Defibrillator address (Street name / House number / Postal code / Floor)',
       children: [
         { headerName: 'Street name', field: 'street_name', minWidth: 250 },
-        { headerName: 'House number', field: 'house_number', minWidth: 200 },
-        { headerName: 'Postal code', field: 'postal_code' },
+        { headerName: 'House number', field: 'house_number', minWidth: 150 },
+        { headerName: 'Postal code', field: 'postal_code', minWidth: 50 },
         { field: 'floor', minWidth: 250 },
         {
           headerName: 'Coordinates',

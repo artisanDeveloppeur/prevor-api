@@ -32,9 +32,11 @@
           <div class="tab">
             <nav-tabs class="nav-pills">
               <a href="#vue-tableau" class="tabs_"><span class="dashicons dashicons-editor-table"></span> Tableau (AGGRID)</a>
-              <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
+              
               <a href="#vue-bloc" class="tabs_"><span class="dashicons dashicons-screenoptions"></span> Bloc (SEARCH)</a>
-  
+              <!--
+                <a href="#vue-carte" class="tabs_"><span class="dashicons dashicons-location-alt"></span> Carte</a>
+              -->
             </nav-tabs>
             <div > 
                 <div id="vue-tableau">
@@ -58,17 +60,7 @@
                     replace aggrid
                   -->
                   </div>
-                <div id="vue-carte">
-                  <div class="container-map ">
-  
-                    <div id="coordinatesMap" class="list nos-artisans"> 
-                         
-                    </div>
-                  
-                    <div class="map" id="map"></div>
-                  
-                  </div>
-                </div>
+                
                 <div id="vue-bloc">
                   <div class="search-wrapper">
                     <form action="">
@@ -85,6 +77,19 @@
                   </div>
             
                 </div>
+                <!--
+                  <div id="vue-carte">
+                  <div class="container-map ">
+  
+                    <div id="coordinatesMap" class="list nos-artisans"> 
+                         
+                    </div>
+                  
+                    <div class="map" id="map"></div>
+                  
+                  </div>
+                </div>
+                -->
   
             </div>
         </section>
@@ -102,8 +107,10 @@
         
       </footer>
       <script src="./scripts/tabs.js"></script>
+      <!--
       <script src="./scripts/vendors-map.js"></script>
       <script src="./scripts/map.js"></script>
+      -->
       <script src="./scripts/card.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.1/dist/ag-grid-community.min.js"></script>
 			<script src="./scripts/class.aggrid.js"></script>
